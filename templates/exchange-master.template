@@ -201,14 +201,14 @@ Parameters:
   ADServer1InstanceType:
     AllowedValues:
       - t2.large
-      - m3.large
-      - m3.xlarge
-      - m3.2xlarge
       - m4.large
       - m4.xlarge
       - m4.2xlarge
       - m4.4xlarge
+      - m5.large
       - m5.xlarge
+      - m5.2xlarge
+      - m5.4xlarge
     Default: m5.xlarge
     Description: The Amazon EC2 instance type for the first Active Directory instance.
     Type: String
@@ -227,14 +227,14 @@ Parameters:
   ADServer2InstanceType:
     AllowedValues:
       - t2.large
-      - m3.large
-      - m3.xlarge
-      - m3.2xlarge
       - m4.large
       - m4.xlarge
       - m4.2xlarge
       - m4.4xlarge
+      - m5.large
       - m5.xlarge
+      - m5.2xlarge
+      - m5.4xlarge
     Default: m5.xlarge
     Description: The Amazon EC2 instance type for the second Active Directory instance. 
     Type: String
@@ -304,14 +304,18 @@ Parameters:
   EdgeInstanceType:
     Description: The Amazon EC2 instance type for the Exchange Edge Transport servers.
     Type: String
-    Default: m5.large
+    Default: m5.xlarge
     AllowedValues:
-      - t2.large
-      - m4.large
-      - m4.xlarge
-      - m4.2xlarge
+      - t3.large
+      - t3a.large
       - m5.large
       - m5.xlarge
+      - m5.2xlarge
+      - m5.4xlarge
+      - m5a.large
+      - m5a.xlarge 
+      - m5a.2xlarge
+      - m5a.4xlarge
     ConstraintDescription: Select a general purpose instance type
   EdgeNode1NetBIOSName:
     AllowedPattern: '[a-zA-Z0-9]+'
@@ -353,6 +357,7 @@ Parameters:
     AllowedValues:
       - '2013'
       - '2016'
+      - '2019'
     Default: '2016'
     Description: Version of Exchange Server to install. Options include
       either "2013" or "2016".
@@ -447,10 +452,10 @@ Parameters:
   RDGWInstanceType:
     AllowedValues:
       - t2.large
-      - m4.large
-      - m4.xlarge
-      - m4.2xlarge
-      - m4.4xlarge
+      - m5.large
+      - m5.xlarge
+      - m5.2xlarge
+      - m5.4xlarge
     Default: t2.large
     Description: The Amazon EC2 instance type for the Remote Desktop Gateway instances.
     Type: String
@@ -488,15 +493,19 @@ Parameters:
     AllowedValues:
       - gp2
       - io1
+      - st1
     Default: gp2
     Description: The volume type for the Exchange Data and Logs volumes.
     Type: String
   FileServerInstanceType:
-    Default: t2.small
+    Default: t3.small
     AllowedValues:
-      - t2.small
-      - t2.large
-      - m4.xlarge
+      - t3.small
+      - t3.large
+      - t3a.small
+      - t3a.large
+      - m5.xlarge
+      - m5a.xlarge
     Description: The Amazon EC2 instance type for the file-share witness server.
     Type: String
   FileServerNetBIOSName:
@@ -564,15 +573,21 @@ Parameters:
     Type: String
   ExchangeNodeInstanceType:
     AllowedValues:
-      - m4.xlarge
       - m5.xlarge
-      - r4.xlarge
-      - r4.2xlarge
-      - r4.4xlarge
-      - r4.8xlarge
-    ConstraintDescription: Only EBS Optimized instance types r4.xlarge, r4.2xlarge,
-      r4.4xlarge allowed
-    Default: r4.2xlarge
+      - m5.2xlarge
+      - m5.4xlarge
+      - m5a.xlarge
+      - m5a.2xlarge
+      - m5a.4xlarge
+      - r5.xlarge
+      - r5.2xlarge
+      - r5.4xlarge
+      - r5.8xlarge
+      - r5a.xlarge
+      - r5a.2xlarge
+      - r5a.4xlarge
+      - r5a.8xlarge
+    Default: r5.2xlarge
     Description: The Amazon EC2 instance type for the Exchange nodes. 
     Type: String
 Conditions:
